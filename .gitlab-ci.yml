@@ -1,18 +1,21 @@
-
+stages:
+    - build
+    - deploy
 
 cache:
     paths: [node_modules/]
 
 
 install:
+    stage: build
     image: node:latest
     script: 
         - npm install
         - node index.js
 
 deploy:
-    image: 20.10.10-alpine3.14
-
+    image: docker:20.10.10-alpine3.14
+    stage: deploy
     script:
         - docker login registry.gitlab.com
         - docker build -t registry.gitlab.com/mirfanrafif17/test-autograding .
