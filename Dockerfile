@@ -1,6 +1,6 @@
 FROM fischerscode/flutter:stable
 
-RUN apt-get -y install nodejs npm
+RUN sudo apt-get -y install nodejs npm
 
 COPY . .
 
