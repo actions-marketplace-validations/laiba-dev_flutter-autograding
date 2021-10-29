@@ -1,9 +1,7 @@
-FROM node:10.19-alpine
+FROM fischerscode/flutter:stable
+
+RUN apt-get -y install nodejs npm
 
 COPY . .
 
 RUN npm install
-
-EXPOSE 8080
-
-CMD node index.js
