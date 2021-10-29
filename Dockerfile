@@ -1,12 +1,6 @@
-FROM fischerscode/flutter:stable
+FROM node:16.13.0-alpine3.13
 
-USER root
-
-ENV TZ=Asia/Jakarta
-
-RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
-
-RUN apt-get update && apt-get -y install nodejs npm
+WORKDIR /app/mirfanrafif/autograde
 
 COPY . .
 
