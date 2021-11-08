@@ -1,0 +1,15 @@
+{"protocolVersion":"0.1.1","runnerVersion":null,"pid":10388,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"D:\\Mine\\Ngoding\\AndroidProjects\\hello_flutter\\test\\widget_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading D:\\Mine\\Ngoding\\AndroidProjects\\hello_flutter\\test\\widget_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":2}
+{"count":1,"time":12,"type":"allSuites"}
+
+[{"event":"test.startedProcess","params":{"observatoryUri":null}}]
+{"testID":1,"result":"success","skipped":false,"hidden":true,"type":"testDone","time":9536}
+{"group":{"id":2,"suiteID":0,"parentID":null,"name":"","metadata":{"skip":false,"skipReason":null},"testCount":2,"line":null,"column":null,"url":null},"type":"group","time":9542}
+{"test":{"id":3,"name":"Hello world text should available","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":159,"column":5,"url":"package:flutter_test/src/widget_tester.dart","root_line":14,"root_column":3,"root_url":"file:///D:/Mine/Ngoding/AndroidProjects/hello_flutter/test/widget_test.dart"},"type":"testStart","time":9554}
+{"testID":3,"result":"success","skipped":false,"hidden":false,"type":"testDone","time":10204}
+{"test":{"id":4,"name":"Text should change","suiteID":0,"groupIDs":[2],"metadata":{"skip":false,"skipReason":null},"line":159,"column":5,"url":"package:flutter_test/src/widget_tester.dart","root_line":23,"root_column":3,"root_url":"file:///D:/Mine/Ngoding/AndroidProjects/hello_flutter/test/widget_test.dart"},"type":"testStart","time":10205}
+{"testID":4,"messageType":"print","message":"══╡ EXCEPTION CAUGHT BY FLUTTER TEST FRAMEWORK ╞════════════════════════════════════════════════════\nThe following TestFailure object was thrown running a test:\n  Expected: exactly one matching node in the widget tree\n  Actual: _TextFinder:<zero widgets with text \"Hello, irfan\" (ignoring offstage widgets)>\n   Which: means none were found but one was expected\n\nWhen the exception was thrown, this was the stack:\n#4      main.<anonymous closure> (file:///D:/Mine/Ngoding/AndroidProjects/hello_flutter/test/widget_test.dart:29:5)\n<asynchronous suspension>\n<asynchronous suspension>\n(elided one frame from package:stack_trace)\n\nThis was caught by the test expectation on the following line:\n  file:///D:/Mine/Ngoding/AndroidProjects/hello_flutter/test/widget_test.dart line 29\nThe test description was:\n  Text should change\n════════════════════════════════════════════════════════════════════════════════════════════════════","type":"print","time":10434}
+{"testID":4,"error":"Test failed. See exception logs above.\nThe test description was: Text should change","stackTrace":"","isFailure":false,"type":"error","time":10438}
+{"testID":4,"result":"error","skipped":false,"hidden":false,"type":"testDone","time":10439}
+{"success":false,"type":"done","time":10481}
