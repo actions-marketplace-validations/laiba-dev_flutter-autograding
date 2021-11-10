@@ -1,7 +1,5 @@
-FROM node:16.13.0-alpine3.13
+FROM python:3.8-alpine
 
 WORKDIR /app/mirfanrafif/autograde
 
 COPY . .
-
-RUN npm install
