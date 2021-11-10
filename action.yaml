@@ -1,8 +1,9 @@
 name: flutter-autograding
 description: "Autograding for Flutter Project"
 author : Moch. Irfan Rafif
-icon: activity
-color: purple
+branding: 
+  icon: activity
+  color: purple
 outputs:
   time: # id of output
     description: "Time greeting"
