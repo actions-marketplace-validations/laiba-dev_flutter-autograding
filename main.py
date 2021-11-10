@@ -99,8 +99,8 @@ def extract_message(message):
             which = data.split(' ', 1)[1]
 
     message = {
-        'actual' : actual,
         'expected' : expected,
+        'actual' : actual,
         'which': which
     }
 

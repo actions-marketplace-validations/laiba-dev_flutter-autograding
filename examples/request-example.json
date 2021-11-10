@@ -2,7 +2,7 @@
     "about": {
         "username": "mirfanrafif17",
         "project_name": "LAIBA_Flutter1",
-        "time": "11/10/2021, 16:39:28"
+        "time": "11/10/2021, 16:46:47"
     },
     "test": {
         "pipeline_id": "32132190",
@@ -19,8 +19,8 @@
                 "name": "Text should change",
                 "result": "error",
                 "message": {
-                    "actual": "_TextFinder:<zero widgets with text \"Hello, irfan\" (ignoring offstage widgets)>",
                     "expected": "exactly one matching node in the widget tree",
+                    "actual": "_TextFinder:<zero widgets with text \"Hello, irfan\" (ignoring offstage widgets)>",
                     "which": "means none were found but one was expected"
                 }
             }
