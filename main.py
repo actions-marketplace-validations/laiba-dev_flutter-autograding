@@ -98,8 +98,14 @@ def extract_message(message):
         elif data.startswith('Which:'): 
             which = data.split(' ', 1)[1]
 
+    message = {
+        'actual' : actual,
+        'expected' : expected,
+        'which': which
+    }
+
     print()
-    return ''
+    return message
 
 
 def make_summary(username, repo_name, pipeline_id, test_summary, overall_result):
