@@ -8,5 +8,5 @@ outputs:
   time: # id of output
     description: "Time greeting"
 runs:
-  using: "python38"
-  main: "main.py"
+  using: "docker"
+  image: "Dockerfile"
