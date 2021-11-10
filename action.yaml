@@ -1,0 +1,9 @@
+name: flutter-autograding
+description: "Autograding for Flutter Project"
+author : Moch. Irfan Rafif
+outputs:
+  time: # id of output
+    description: "Time greeting"
+runs:
+  using: "python38"
+  main: "main.py"
