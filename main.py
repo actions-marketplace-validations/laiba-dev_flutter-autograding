@@ -85,7 +85,21 @@ def find_result_by_id(result_list, id):
 
 
 def extract_message(message):
-    return "dasjdosiajdasiodjasiod"
+    actual = ''
+    expected = ''
+    which = ''
+    list_message_row = message.split('\n')
+    for row in list_message_row:
+        data = row.strip()
+        if data.startswith('Actual:'): 
+            actual = data.split(' ', 1)[1]
+        elif data.startswith('Expected:'): 
+            expected = data.split(' ', 1)[1]
+        elif data.startswith('Which:'): 
+            which = data.split(' ', 1)[1]
+
+    print()
+    return ''
 
 
 def make_summary(username, repo_name, pipeline_id, test_summary, overall_result):
