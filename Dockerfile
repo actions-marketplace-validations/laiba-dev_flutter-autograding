@@ -1,6 +1,6 @@
 FROM python:3.8-alpine
 
-COPY . $GITHUB_WORKSPACE
+COPY . /app/flutter-autograding
 
 COPY entrypoint.sh /entrypoint.sh
 
