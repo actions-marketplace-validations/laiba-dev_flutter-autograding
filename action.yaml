@@ -10,4 +10,4 @@ outputs:
 runs:
   using: "docker"
   image: "Dockerfile"
-  entrypoint: '/app/flutter-autograding/main.sh'
+  entrypoint: '/app/flutter-autograding/github_entrypoint.sh'
