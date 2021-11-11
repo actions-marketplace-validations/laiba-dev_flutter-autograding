@@ -1,4 +1,6 @@
 #!/bin/sh -l
 
 pwd
-cp /github/workspac
+
+ls -la $GITHUB_WORKSPACE
+ls -la /home/runner/work/_temp/_github_home
