@@ -4,6 +4,8 @@ WORKDIR /github/workspaces
 
 COPY . .
 
-ENTRYPOINT [ "./entrypoint.sh" ]
+COPY entrypoint.sh /entrypoint.sh
+
+ENTRYPOINT [ "/entrypoint.sh" ]
 
 CMD [ "python3"]
