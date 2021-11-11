@@ -1,6 +1,6 @@
 FROM python:3.8-alpine
 
-COPY . .
+COPY . $GITHUB_WORKSPACE
 
 COPY entrypoint.sh /entrypoint.sh
 
