@@ -1,8 +1,7 @@
 FROM python:3.8-alpine
 
-COPY . /app/flutter-autograding
-
 WORKDIR /app/flutter-autograding
+COPY . .
 
 COPY entrypoint.sh /entrypoint.sh
 
