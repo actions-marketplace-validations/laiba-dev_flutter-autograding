@@ -9,3 +9,5 @@ ls /app/flutter-autograding
 cp /github/workspace/test-result.txt /app/flutter-autograding/test-result.txt
 
 ls /app/flutter-autograding
+
+python3 main.py ./text-result.txt $GITHUB_ACTOR $GITHUB_REPOSITORY $GITHUB_ACTION
