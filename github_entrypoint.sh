@@ -7,9 +7,6 @@ flutter pub get
 #flutter test
 flutter test --machine 2>test-runtime-errors.txt 1>test-result.txt
 
-#install python3
-apt install python3 -y
-
 #move test log files to autograding folder
 cp /github/workspace/test-result.txt /app/flutter-autograding/test-result.txt
 
