@@ -5,7 +5,7 @@ export PATH="$PATH":"$HOME/.pub-cache/bin"
 flutter pub get
 
 #flutter test
-flutter test --machine |& tee test-result.txt
+flutter test --machine 2>test-runtime-errors.txt 1>test-result.txt
 
 #install python3
 sudo apt install python3
