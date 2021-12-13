@@ -1,3 +1,5 @@
-FROM python:3.8-alpine
+FROM fischerscode/flutter:stable
+
+USER root
 
 COPY . /app/flutter-autograding
