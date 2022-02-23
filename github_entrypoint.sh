@@ -2,7 +2,6 @@
 
 #ambil token github apps. anggap aja url itu buat ngambil token lah ya. nanti dipindah ke url asli
 echo "Getting Access Token from Github"
-wget -qO- http://168.138.160.59/api/access_token --header "Authorization: Bearer $API_TOKEN"
 result=$(wget -qO- http://168.138.160.59/api/access_token --header "Authorization: Bearer $API_TOKEN")
 
 #ambil test file
