@@ -19,7 +19,8 @@ echo "Running Flutter Test"
 flutter test --machine 2>test-runtime-errors.txt 1>test-result.txt
 
 #move test log files to autograding folder
-cp /github/workspace/test-result.txt /app/flutter-autograding/test-result.txt
+cp ./test-result.txt /app/flutter-autograding/test-result.txt
+cp ./test-runtime-errors.txt /app/flutter-autograding/test-runtime-errors.txt
 
 #run parser to generate summative and formative feedback
 echo "Running Parser"

@@ -19,6 +19,7 @@ flutter test --machine 2>test-runtime-errors.txt 1>test-result.txt
 
 #move test log to flutter autogradign folder
 cp ./test-result.txt /app/flutter-autograding/test-result.txt
+cp ./test-runtime-errors.txt /app/flutter-autograding/test-runtime-errors.txt
 cd /app/flutter-autograding
 
 #run parser to generate summative and formative feedback

@@ -5,12 +5,28 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Python: Current File",
+            "name": "Python: Runtime Error",
             "type": "python",
             "request": "launch",
             "program": "${file}",
             "console": "integratedTerminal",
-            "args": ["./examples/test-fail-example.txt", "mirfanrafif17", "LAIBA_Flutter1", "32132190"]
+            "args": ["./examples/runtime-errors/test-result.txt", "./examples/runtime-errors/test-runtime-errors.txt", "mirfanrafif17", "LAIBA_Flutter1", "32132190"]
+        },
+        {
+            "name": "Python: Wrong Answer",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["./examples/wrong-answer/test-result.txt", "./examples/wrong-answer/test-runtime-errors.txt", "mirfanrafif17", "LAIBA_Flutter1", "32132190"]
+        },
+        {
+            "name": "Python: Success",
+            "type": "python",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "args": ["./examples/success/test-result.txt", "./examples/success/test-runtime-errors.txt", "mirfanrafif17", "LAIBA_Flutter1", "32132190"]
         }
     ]
 }

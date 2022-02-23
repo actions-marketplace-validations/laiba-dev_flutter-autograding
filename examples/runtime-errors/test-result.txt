@@ -1,0 +1,7 @@
+{"protocolVersion":"0.1.1","runnerVersion":null,"pid":8140,"type":"start","time":0}
+{"suite":{"id":0,"platform":"vm","path":"D:\\Mine\\Ngoding\\AndroidProjects\\hello_flutter\\test\\widget_test.dart"},"type":"suite","time":0}
+{"test":{"id":1,"name":"loading D:\\Mine\\Ngoding\\AndroidProjects\\hello_flutter\\test\\widget_test.dart","suiteID":0,"groupIDs":[],"metadata":{"skip":false,"skipReason":null},"line":null,"column":null,"url":null},"type":"testStart","time":1}
+{"count":1,"time":10,"type":"allSuites"}
+{"testID":1,"error":"Failed to load \"D:\\Mine\\Ngoding\\AndroidProjects\\hello_flutter\\test\\widget_test.dart\": Compilation failed for testPath=D:\\Mine\\Ngoding\\AndroidProjects\\hello_flutter\\test\\widget_test.dart","stackTrace":"","isFailure":false,"type":"error","time":1254}
+{"testID":1,"result":"error","skipped":false,"hidden":false,"type":"testDone","time":1259}
+{"success":false,"type":"done","time":1265}

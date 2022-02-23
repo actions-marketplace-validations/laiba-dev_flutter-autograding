@@ -3,15 +3,26 @@ import sys
 from datetime import datetime
 
 # membuka file
+
+
 def get_file(inputfile):
     with open(inputfile) as file:
         return file.readlines()
 
+
+def get_runtime_error(runtime_error_file):
+    with open(runtime_error_file) as file:
+        return file.read()
+
 # mencari test, result, dan message
-def find_test_result_message(result_list):
+
+
+def find_test_result_error_message(result_list):
     test_list = []
     test_result = []
-    test_message = []
+
+    test_error = []
+    error_message = []
     overall_result = {}
     for row in result_list:
         if row.startswith('{'):
@@ -22,26 +33,29 @@ def find_test_result_message(result_list):
                 if 'result' in item:
                     test_result.append(item)
                 elif 'message' in item:
-                    test_message.append(item)
+                    error_message.append(item)
+                elif 'error' in item:
+                    test_error.append(item)
             elif 'success' in item:
                 overall_result = item
 
-    return test_list, test_result, test_message, overall_result
-
-# menghapus test yang hanya loading scenario test
+    return test_list, test_result, test_error, error_message, overall_result
 
 
-def remove_loading_test(test_list):
-    filtered_test = []
-    for test in test_list:
-        test_name = test['test']['name']
-        if (not test_name.startswith('loading')) & (not test_name.endswith('dart')):
-            filtered_test.append(test)
+def find_error_by_testid(test_error, error_message, id):
+    message = ''
+    for item in test_error:
+        if item['testID'] == id:
+            if item['error'].startswith('Test failed. See exception logs above.'):
+                message = find_message_by_id(
+                    error_message, id)['message']
+                message = extract_message(message)
+            elif item['error'].startswith('Failed to load'):
+                message = "Error ketika membangun atau menjalankan program. \nTolong cek apakah anda mengirim file yang benar atau terdapat error sintaksis. \nRuntime Error yang ditampilkan dibawah mungkin dapat membantu."
+    return message
 
-    return filtered_test
 
-
-def make_summary_test_list(test_list, result_list, message_list):
+def make_summary_test_list(test_list, result_list, test_error, message_list):
     tests = []
     for item in test_list:
         # membuat summary
@@ -56,8 +70,8 @@ def make_summary_test_list(test_list, result_list, message_list):
 
         # mencari error message
         if result['result'] == 'error':
-            message = find_message_by_id(message_list, id)['message']
-            summary['message'] = extract_message(message)
+            summary['message'] = find_error_by_testid(
+                test_error, message_list, id)
         else:
             summary['message'] = None
 
@@ -91,24 +105,18 @@ def extract_message(message):
     list_message_row = message.split('\n')
     for row in list_message_row:
         data = row.strip()
-        if data.startswith('Actual:'): 
+        if data.startswith('Actual:'):
             actual = data.split(' ', 1)[1]
-        elif data.startswith('Expected:'): 
+        elif data.startswith('Expected:'):
             expected = data.split(' ', 1)[1]
-        elif data.startswith('Which:'): 
+        elif data.startswith('Which:'):
             which = data.split(' ', 1)[1]
 
-    message = {
-        'expected' : expected,
-        'actual' : actual,
-        'which': which
-    }
-
-    print()
+    message = 'expected: ' + expected + ',\nactual: ' + actual + ',\nwhich: ' + which
     return message
 
 
-def make_summary(username, repo_name, pipeline_id, test_summary, overall_result):
+def make_summary(username, repo_name, pipeline_id, test_summary, runtime_error, overall_result):
     summary = {}
     now = datetime.now()
 
@@ -125,6 +133,7 @@ def make_summary(username, repo_name, pipeline_id, test_summary, overall_result)
     test['pipeline_id'] = pipeline_id
     test['success'] = overall_result['success']
     test['tests'] = test_summary
+    test['runtime_error'] = runtime_error
 
     summary['test'] = test
 
@@ -140,20 +149,23 @@ def main(argv):
 
     args = sys.argv
     inputfile = args[1]
-    username = args[2]
-    project_name = args[3]
-    pipeline_id = args[4]
+    runtimeErrorFile = args[2]
+    username = args[3]
+    project_name = args[4]
+    pipeline_id = args[5]
 
     # mengambil file
     file_text = get_file(inputfile)
+    # baca runtime_error
+    runtime_error = get_runtime_error(runtimeErrorFile)
     # mengambil data untuk test dan deskripsinya
-    test, result, message, overall_result = find_test_result_message(file_text)
-    # mennghapus test yang mengandung loading
-    test = remove_loading_test(test)
+    test, result, error, message, overall_result = find_test_result_error_message(
+        file_text)
     # membuat rangkuman terhadap test
-    test_summary = make_summary_test_list(test, result, message)
+    test_summary = make_summary_test_list(test, result, error, message)
     # membuat summary yang siap kirim
-    summary = make_summary(username, project_name, pipeline_id, test_summary, overall_result)
+    summary = make_summary(username, project_name,
+                           pipeline_id, test_summary, runtime_error,  overall_result)
 
     print(json.dumps(summary))
 
