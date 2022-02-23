@@ -6,7 +6,8 @@ result=$(wget -qO- http://168.138.160.59/api/access_token --header "Authorizatio
 
 #ambil test file
 echo "Cloning Test Files"
-git clone https://$result@github.com/laiba-dev/hello-flutter-test.git test
+repo_name=$(python3 /app/flutter-autograding/get-repo.py $GITHUB_REPOSITORY)
+git clone https://$result@github.com/$repo_name.git test
 
 #config flutter path
 export PATH="$PATH":"$HOME/.pub-cache/bin"
