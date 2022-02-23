@@ -1,14 +1,14 @@
 #!/bin/sh -l
 
-#config flutter path
-export PATH="$PATH":"$HOME/.pub-cache/bin"
-flutter pub get
-
 #ambil token github apps. anggap aja url itu buat ngambil token lah ya. nanti dipindah ke url asli
-result=$(wget -qO- https://api.github.com/repos/laiba-dev/hello-flutter --header 'Authorization: Bearer ghs_VlDcsSFnfX1PCpY2Cw8sWeBsUvnCzx2juhzm')
+result=$(wget -qO- http://168.138.160.59/api/access_token --header "Authorization: Bearer $API_TOKEN")
 
 #ambil test file
 git clone https://$result@github.com/laiba-dev/hello-flutter-test.git test
+
+#config flutter path
+export PATH="$PATH":"$HOME/.pub-cache/bin"
+flutter pub get
 
 #flutter test
 flutter test --machine 2>test-runtime-errors.txt 1>test-result.txt

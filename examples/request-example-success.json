@@ -1,0 +1,32 @@
+{
+  "about": {
+    "username": "mirfanrafif",
+    "project_name": "laiba-dev/hello-flutter-mirfanrafif",
+    "time": "01/21/2022, 10:35:47"
+  },
+  "test": {
+    "pipeline_id": "123123",
+    "success": true,
+    "tests": [
+      {
+        "id": 1,
+        "name": "loading D:\\Mine\\Ngoding\\AndroidProjects\\hello_flutter\\test\\widget_test.dart",
+        "result": "success",
+        "message": null
+      },
+      {
+        "id": 3,
+        "name": "Hello world text should available",
+        "result": "success",
+        "message": null
+      },
+      {
+        "id": 4,
+        "name": "Text should change",
+        "result": "success",
+        "message": null
+      }
+    ],
+    "runtime_error": ""
+  }
+}
