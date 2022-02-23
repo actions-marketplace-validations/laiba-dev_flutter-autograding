@@ -1,6 +1,6 @@
 name: Demo Push
 
-on:   
+on:
   push:
     # Publish `master` as Docker `latest` image.
     branches:
