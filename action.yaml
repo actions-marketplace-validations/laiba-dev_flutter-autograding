@@ -1,13 +1,20 @@
 name: flutter-autograding
 description: "Autograding for Flutter Project"
-author : Moch. Irfan Rafif
-branding: 
+author: Moch. Irfan Rafif
+branding:
   icon: activity
   color: purple
+inputs:
+  api-token:
+    description: "API Token for Backend"
+    required: true
+    default: ""
 outputs:
   time: # id of output
     description: "Time greeting"
 runs:
   using: "docker"
   image: "Dockerfile"
-  entrypoint: '/app/flutter-autograding/github_entrypoint.sh'
+  env:
+    API_TOKEN: ${{inputs.api-token}}
+  entrypoint: "/app/flutter-autograding/github_entrypoint.sh"
