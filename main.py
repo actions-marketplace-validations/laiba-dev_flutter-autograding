@@ -1,6 +1,7 @@
 import json
 import sys
 from datetime import datetime
+import requests
 
 # membuka file
 
@@ -140,6 +141,15 @@ def make_summary(username, repo_name, pipeline_id, test_summary, runtime_error, 
     return summary
 
 
+def make_request(summary):
+    response = requests.post('http://168.138.160.59/api/submit/flutter', data=json.dumps(summary), headers={
+        "Content-Type": "application/json",
+        "Accept": "application/json"
+    }
+    )
+    print(response.text)
+
+
 def main(argv):
 
     inputfile = ''
@@ -167,7 +177,7 @@ def main(argv):
     summary = make_summary(username, project_name,
                            pipeline_id, test_summary, runtime_error,  overall_result)
 
-    print(json.dumps(summary))
+    make_request(summary=summary)
 
 
 if __name__ == "__main__":
