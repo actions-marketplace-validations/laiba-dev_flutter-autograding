@@ -142,6 +142,9 @@ def make_summary(username, repo_name, pipeline_id, test_summary, runtime_error, 
 
 
 def make_request(summary):
+    print(json.dumps(summary))
+    print("Send Summary to LAIBA API")
+
     response = requests.post('http://168.138.160.59/api/submit/flutter', data=json.dumps(summary), headers={
         "Content-Type": "application/json",
         "Accept": "application/json"
