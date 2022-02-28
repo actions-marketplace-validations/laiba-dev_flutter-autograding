@@ -14,7 +14,7 @@ outputs:
     description: "Time greeting"
 runs:
   using: "docker"
-  image: "ghcr.io/laiba-dev/flutter-autograding:latest"
+  image: "docker://ghcr.io/laiba-dev/flutter-autograding:latest"
   env:
     API_TOKEN: ${{inputs.api-token}}
   entrypoint: "/app/flutter-autograding/github_entrypoint.sh"
