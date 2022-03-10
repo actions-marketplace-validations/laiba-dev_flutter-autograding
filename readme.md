@@ -30,42 +30,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    - uses: actions/setup-java@v1
-      with:
-        java-version: '12.x'
-    - uses: subosito/flutter-action@v1
-      with:
-        flutter-version: '2.5.1'
-    - run: flutter pub get
-      name: getting dependencies
-    - run: flutter test --machine |& tee test-result.txt
-      name: testing
     - name: olah data
       uses: mirfanrafif/flutter-autograding@v0.13
-```
-Untuk Gitlab (Gitlab CI) : 
-```
-stages:
-  - test
-  - integrate
-
-testing:
-  stage: test
-  image: fischerscode/flutter
-  before_script:
-    - export PATH="$PATH":"$HOME/.pub-cache/bin"
-    - flutter pub get
-  script:
-    - flutter test --machine |& tee test-result.txt
-  artifacts:
-    when: always
-    name: test_result
-    paths:
-      - test-result.txt
-
-send report:
-  stage: integrate
-  image: ghcr.io/mirfanrafif/flutter-autograding:latest
-  script: 
-    - /app/flutter-autograding/gitlab_entrypoint.sh
 ```
