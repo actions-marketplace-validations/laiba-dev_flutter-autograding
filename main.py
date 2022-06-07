@@ -50,7 +50,7 @@ def find_error_by_testid(test_error, error_message, id):
             if item['error'].startswith('Test failed. See exception logs above.'):
                 message = find_message_by_id(
                     error_message, id)['message']
-                message = extract_message(message)
+                # message = extract_message(message)
             elif item['error'].startswith('Failed to load'):
                 message = "Error ketika membangun atau menjalankan program. \nTolong cek apakah anda mengirim file yang benar atau terdapat error sintaksis. \nRuntime Error yang ditampilkan dibawah mungkin dapat membantu."
     return message
