@@ -10,7 +10,7 @@ result=$(wget -qO- https://api.laiba.dhanifudin.com/api/access_token --header "A
 
 #ambil test file
 echo "Cloning Test Files"
-repo_name=$(python3 /app/flutter-autograding/get-repo.py $GITHUB_REPOSITORY)
+repo_name=$(python3 /app/flutter-autograding/get-repo.py $GITHUB_REPOSITORY $GITHUB_ACTOR)
 git clone https://$result@github.com/$repo_name.git test
 
 #config flutter path
